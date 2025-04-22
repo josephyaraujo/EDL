@@ -1,4 +1,4 @@
-package POO_em_Java;
+package POO_em_Java.aula_01;
 
 public class aula01 {
     public static void main (String[] args){
