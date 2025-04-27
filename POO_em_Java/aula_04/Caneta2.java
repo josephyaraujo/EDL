@@ -20,7 +20,7 @@ public class Caneta2 {
     public void setPonta(float p){
         ponta = p;
     }
-    public void tampar(){
+    public final void tampar(){
         this.tampada = true;
     }
     public void destampar(){
