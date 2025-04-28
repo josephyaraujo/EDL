@@ -24,15 +24,19 @@ public class FilaArray implements Fila {
             capacidade += estrategiaCrescimento;
         }
         Object[] novoArray = new Object[capacidade]; // cria um novo array com a nova capacidade
-        for (int i = 0; i < array.length; i++){ // copia os elementos do array antigo para o novo, mantendo a ordem
-            novoArray[i] = array[i]; // copia o elemento para o novo array (que será linear)
+        int ii = i;
+        for (int ff = 0; ff < array.length; ff++){ // copia os elementos do array antigo para o novo, mantendo a ordem
+            novoArray[ff] = array[ii]; // copia o elemento para o novo array (que será linear)
+            ii = (ii + 1) % capacidade;
         }
         //ataualiza as referências
+        f = size();
+        i = 0;
         array = novoArray; //agora usamos o novo array
     }
     //enqueue: adiciona um elemento no final da fila
     public void enqueue (Object elemento){
-        if (size() == capacidade - 1){
+        if (size() == capacidade - 1){ //se a fila estiver cheia, chama o método redimensionar
             redimensionar();
         } else {
             array [f] = elemento; 
