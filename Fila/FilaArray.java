@@ -32,7 +32,7 @@ public class FilaArray implements Fila {
     }
     //enqueue: adiciona um elemento no final da fila
     public void enqueue (Object elemento){
-        if (size() == tamanho - 1){
+        if (size() == capacidade - 1){
             redimensionar();
         } else {
             array [f] = elemento; 
