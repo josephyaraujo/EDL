@@ -10,7 +10,7 @@ public class FilaArray implements Fila {
     public FilaArray (int capInic, int cresc){
         this.tamanho = capInic;
         i = 0;
-        f = -1;
+        f = 0;
         estrategiaCrescimento = cresc; //fator de crescimento para definir se erá incremento ou duplicação 
         if (cresc <= 0) {
             estrategiaCrescimento = 0; //se o crescimento for menor ou igual a zero, será optado pela duplicação
@@ -25,10 +25,15 @@ public class FilaArray implements Fila {
             novoTamanho += estrategiaCrescimento;
         }
         Object[] novoArray = new Object[novoTamanho]; // cria um novo array com a nova capacidade
-        for (int i = 0; i < array.length; i++){ // copia os elementos do array antigo para o novo, mantendo a ordem
-            novoArray[i] = array[i]; // copia o elemento para o novo array (que será linear)
+        int ii=i;
+        for (int ff = 0; ff < array.length; ff++){ // copia os elementos do array antigo para o novo, mantendo a ordem
+            novoArray[ff] = array[ii]; // copia o elemento para o novo array (que será linear)
+            ii = (ii+1)%tamanho; 
         }
         //ataualiza as referências
+        f = size();
+        i = 0;
+        tamanho = novoTamanho; 
         array = novoArray; //agora usamos o novo array
     }
     //enqueue: adiciona um elemento no final da fila
@@ -41,7 +46,7 @@ public class FilaArray implements Fila {
         }
     }
     //dequeue: remove e retorna o elemento do início da fila
-    public Object dequeue() throws filaVaziaExcecao {
+    public Object dequeue() throws FilaExcecao {
         if (isEmpty()){
             throw new FilaExcecao ("A fila está vazia");
         }
@@ -50,7 +55,7 @@ public class FilaArray implements Fila {
         return removido;
     }
     // first: retorna (mas não remove) o elemento no início da fila
-    public Object first() throws filaVaziaExcecao {
+    public Object first() throws FilaExcecao {
         if (isEmpty()){
             throw new FilaExcecao ("A fila está vazia");
         }
@@ -58,7 +63,7 @@ public class FilaArray implements Fila {
     }
     //isEmpty: verifica se a fila está vazia
     public boolean isEmpty(){
-        return (i = f);
+        return (i == f);
     }
     //size: retorna o número de elementos na fila
     public int size(){
