@@ -1,4 +1,4 @@
-import POO_em_Java.aula_05.ContaBanco;
+package POO_em_Java.aula_05;
 
 public class Aula_05 {
     public static void main (String[] args) {
