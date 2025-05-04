@@ -1,4 +1,4 @@
-public class testePilha {
+public class TestePilha {
 
 	public static void main(String[] args) {			
 		pilhaArray pp = new pilhaArray(1,0);
