@@ -1,11 +1,13 @@
-public class PilhaArray implements Pilha { //classe PilhArray implementa a interface Pilha
-    private int capacidade; //tamanho máximo do array
+package Pilha.Pilha_esvaziar;
+
+public class PilhaArrayEmpty implements PilhaEmpty{
+        private int capacidade; //tamanho máximo do array
     private Object[] array; //armazena os elementos da pilha num array de objetos   
     private int t; //índice do topo da pilha
     private int FC; //fator de crescimento: define se o array será duplicado ou incrementado quando cheio
 
     //Método construtor
-    public PilhaArray (int capacidade, int crescimento){
+    public PilhaArrayEmpty (int capacidade, int crescimento){
         this.capacidade = capacidade; 
         t = -1; //começa em -1 porque a pilha está vazia
         FC = crescimento;
@@ -33,18 +35,18 @@ public class PilhaArray implements Pilha { //classe PilhArray implementa a inter
         array[++t] = elemento; //primeira posição livre agora recebe o novo elemento. o ++ tá vindo na frente, porque primeiro incrementa o t pra depois atribuir o valor        
     }
     @Override
-    public Object pop()throws PilhaVaziaExcecao {
+    public Object pop()throws PilhaVaziaExc {
         if (isEmpty()){ //checa se a pilha está vazia
-            throw new PilhaVaziaExcecao("A pilha está vazia");
+            throw new PilhaVaziaExc("A pilha está vazia");
         }
         Object removido = array[t--]; //remove o último elemento (atribui o valor do array[t] ao objeto a ser removido), depois decrementa o valor de t atualizando o topo.
         return removido;
         //na prática o valor ainda fica fisicamente no array, mas como o índice t foi reduzido, ele não será mais acessado por operações normais da pilha, até ser sobrescrito por um novo push(). 
     }
     @Override
-    public Object top()throws PilhaVaziaExcecao{
+    public Object top()throws PilhaVaziaExc{
         if (isEmpty()){ //checa se a pilha está vazia
-            throw new PilhaVaziaExcecao("A pilha está vazia");
+            throw new PilhaVaziaExc("A pilha está vazia");
         }
         return array[t]; //retorna o último elemento sem remover
     }
@@ -55,5 +57,9 @@ public class PilhaArray implements Pilha { //classe PilhArray implementa a inter
     @Override
     public int size(){
         return t+1; //retorna a quantidade de elementos aramzenados no array
+    }
+    @Override
+    public int empty(){
+        return t = -1;
     }
 }
