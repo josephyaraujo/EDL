@@ -4,7 +4,6 @@ public class FilaArrayNo implements Fila {
     private int f; //índice do elemento que está no fim
     private int tamanho; //capacidade máxima do array 
     private int estrategiaCrescimento; //estratégia para aumentar a capaciade do array quando cheio
-    private No no;
 
     public FilaArrayNo (int capInic, int cresc){
         this.tamanho = capInic;
@@ -35,6 +34,7 @@ public class FilaArrayNo implements Fila {
         array = novoArray; //agora usamos o novo array
     }
     //enqueue: adiciona um elemento no final da fila
+    @Override
     public void enqueue (Object elemento){
         if (size() == tamanho - 1){
             redimensionar();
@@ -44,6 +44,7 @@ public class FilaArrayNo implements Fila {
         }
     }
     //dequeue: remove e retorna o elemento do início da fila
+    @Override
     public Object dequeue() throws FilaExcecao {
         if (isEmpty()){
             throw new FilaExcecao ("A fila está vazia");
@@ -53,6 +54,7 @@ public class FilaArrayNo implements Fila {
         return removido;
     }
     // first: retorna (mas não remove) o elemento no início da fila
+    @Override
     public Object first() throws FilaExcecao {
         if (isEmpty()){
             throw new FilaExcecao ("A fila está vazia");
@@ -60,10 +62,12 @@ public class FilaArrayNo implements Fila {
         return array [i];
     }
     //isEmpty: verifica se a fila está vazia
+    @Override
     public boolean isEmpty(){
         return (i == f);
     }
     //size: retorna o número de elementos na fila
+    @Override
     public int size(){
         return (tamanho - i + f) % tamanho;
     } 

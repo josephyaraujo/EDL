@@ -1,6 +1,6 @@
 package POO_em_Java.aula_05;
 
-public class ContaBanco {
+public final class ContaBanco {
 //Atributos
     public int numConta; 
     protected String tipo;
@@ -19,9 +19,9 @@ public class ContaBanco {
     public void abrirConta(String t){
         this.setTipo(t);
         this.setStatus(true);
-        if (t == "CC") {
+        if ("CC".equals(t)) {
             this.setSaldo(50);
-        } else if (t == "CP") {
+        } else if ("CP".equals(t)) {
             this.setSaldo(150);
         }
         System.out.println("Conta aberta com sucesso!");
@@ -59,9 +59,9 @@ public class ContaBanco {
     }
     public void pagarMensal(){
         int v = 0;
-        if (this.getTipo() == "CC") {
+        if ("CC".equals(this.getTipo())) {
             v = 12;            
-        } else if (this.getTipo() == "CP") {
+        } else if ("CP".equals(this.getTipo())) {
             v = 20;
         }
         if (this.isStatus()){
