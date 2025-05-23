@@ -3,7 +3,7 @@
 //O objetivo de um TAD é separar a interface da implementação.   
 //Um exemplo de um TAD é a Pilha, onde as inserções e remoções de elementos seguem o esquema LIFO (last in, first out). A pilha tem como suas principais operações: 
 public interface Pilha {    
-    public int size(); //tamanho da pilha     
+    public int size(); //tamanho da pilha (nº de elementos armazenados)     
     public boolean isEmpty(); //se a pilha está vazia
     public Object top() throws PilhaVaziaExcecao; //retorna o último elemento inserido sem remover ele da pilha  
     public void push(Object elemento); //insere um novo elemento na pilha

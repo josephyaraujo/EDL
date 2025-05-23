@@ -1,7 +1,6 @@
 public class TestePilha {
-
 	public static void main(String[] args) {			
-		pilhaArray pp = new pilhaArray(1,0);
+		PilhaArray pp = new PilhaArray(1,0);
 		System.out.println("inserindo");
 		for(int f=0;f<10;f++){
 		  System.out.println(f);
