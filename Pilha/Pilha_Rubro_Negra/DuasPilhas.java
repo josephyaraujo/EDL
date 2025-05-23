@@ -8,7 +8,7 @@ public class DuasPilhas implements PilhaColorida {
 
     //Método construtor
     public DuasPilhas (int capacidadeRed, int capacidadeBlack){
-        this.capacidade = capacidadeRed+capacidadeBlack; 
+        capacidade = capacidadeRed+capacidadeBlack+1; 
         topoRed = -1; //começa da esquerda para direita
         topoBlack = capacidade - 1; //começa da direita para esquerda
         pilhaRB = new Object[capacidade]; //cria um array com a capacidade inicial
@@ -16,15 +16,15 @@ public class DuasPilhas implements PilhaColorida {
     //Métodos especiais
     @Override
     @SuppressWarnings("ManualArrayToCollectionCopy")
-    public void pushRed (Object elemento) { //inseri um novo elemento no topo da pilha vermelha
-        if (topoRed+topoBlack>=capacidade/3){ //verifica se o array está com 1/3 da sua ocupação sendo utilizada 
+    public void pushRed(Object elemento) { //inseri um novo elemento no topo da pilha vermelha
+        if (topoRed+topoBlack >= capacidade/3){ //verifica se o array está com 1/3 da sua ocupação sendo utilizada 
             capacidade = capacidade/2; //em caso positivo, reduz o tamanho do array pela metade
             Object[] novoArray = new Object[capacidade]; //cria um novo array com a nova capacidade
             for (int i = 0; i < topoRed; i++){
                 novoArray[i] = pilhaRB[i]; //copia todos os elementos do antigo array para o novo
             }
             int novoTopoBlack = capacidade - sizeBlack();//calcula o local do novo topo da pilha preta no array com novo tamanho
-            for (int i = topoBlack, j = novoTopoBlack; topoBlack < pilhaRB.length; i++, j++){
+            for (int i = topoBlack, j = novoTopoBlack; i < pilhaRB.length; i++, j++){
                 novoArray[j] = pilhaRB[i]; //copia todos os elementos do antigo array para o novo
             }
             pilhaRB = novoArray; //array antigo agora recebe o array novo
@@ -71,7 +71,7 @@ public class DuasPilhas implements PilhaColorida {
     }
     @Override
     @SuppressWarnings("ManualArrayToCollectionCopy")
-    public void pushBlack (Object elemento) { //inseri um novo elemento no topo da pilha vermelha
+    public void pushBlack(Object elemento) { //inseri um novo elemento no topo da pilha vermelha
         if (topoRed+topoBlack>=capacidade/3){ //verifica se o array está com 1/3 da sua ocupação sendo utilizada 
             capacidade = capacidade/2; //em caso positivo, reduz o tamanho do array pela metade
             Object[] novoArray = new Object[capacidade]; //cria um novo array com a nova capacidade
@@ -79,7 +79,7 @@ public class DuasPilhas implements PilhaColorida {
                 novoArray[i] = pilhaRB[i]; //copia todos os elementos do antigo array para o novo
             }
             int novoTopoBlack = capacidade - sizeBlack();//calcula o local do novo topo da pilha preta no array com novo tamanho
-            for (int i = topoBlack, j = novoTopoBlack; topoBlack < pilhaRB.length; i++, j++){
+            for (int i = topoBlack, j = novoTopoBlack; i < pilhaRB.length; i++, j++){
                 novoArray[j] = pilhaRB[i]; //copia todos os elementos do antigo array para o novo
             }
             pilhaRB = novoArray; //array antigo agora recebe o array novo
