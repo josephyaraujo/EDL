@@ -59,8 +59,11 @@ public class PilhaArrayEmpty implements PilhaEmpty{
         return t+1; //retorna a quantidade de elementos aramzenados no array
     }
     @Override
-    public int empty(){
-        return t = -1;
+    public void empty(){
+        for (int r = 0; r < capacidade; r++){
+            array[r] = null; //esvaziando todas as células para não haver acesso indevido a dados antigos
+        }
+        t = -1; //retornanfo a referência do índice do topo para pilha vazia
     }
 }
 

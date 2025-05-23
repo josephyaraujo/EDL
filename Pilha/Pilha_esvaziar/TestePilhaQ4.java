@@ -8,6 +8,7 @@ public class TestePilhaQ4{
 			System.out.println(f);
 			pp.push(f);
 		}
+		System.out.println("tamanho inicial: "+ pp.size());
 		pp.empty();
 		System.out.println("esvaziando");
 		System.out.println("tamanho atual: "+ pp.size());
