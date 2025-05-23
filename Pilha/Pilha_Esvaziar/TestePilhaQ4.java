@@ -1,4 +1,4 @@
-package Pilha.Pilha_esvaziar;
+package Pilha.Pilha_Esvaziar;
 
 public class TestePilhaQ4{
 	public static void main(String[] args) {			

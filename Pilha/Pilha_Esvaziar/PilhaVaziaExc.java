@@ -1,4 +1,4 @@
-package Pilha.Pilha_esvaziar;
+package Pilha.Pilha_Esvaziar;
 
 public class PilhaVaziaExc extends RuntimeException {
 	public PilhaVaziaExc(String err){

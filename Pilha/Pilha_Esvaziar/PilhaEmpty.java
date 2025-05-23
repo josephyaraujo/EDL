@@ -1,4 +1,4 @@
-package Pilha.Pilha_esvaziar;
+package Pilha.Pilha_Esvaziar;
 
 public interface PilhaEmpty {
     public int size(); //tamanho da pilha (nº de elementos armazenados)     

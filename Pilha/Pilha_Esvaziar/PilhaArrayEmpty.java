@@ -1,4 +1,4 @@
-package Pilha.Pilha_esvaziar;
+package Pilha.Pilha_Esvaziar;
 
 public class PilhaArrayEmpty implements PilhaEmpty{
         private int capacidade; //tamanho máximo do array
@@ -26,7 +26,7 @@ public class PilhaArrayEmpty implements PilhaEmpty{
             } else {
                 capacidade += FC; //senão, usa o método de incremento
             }
-            Object novoArray[] = new Object[capacidade]; //cria um novo array com a capacidade aumentada
+            Object[] novoArray = new Object[capacidade]; //cria um novo array com a capacidade aumentada
             for (int i = 0; i < array.length; i++){
                 novoArray[i] = array[i]; //copia todos os elementos do antigo array para o novo
             }
