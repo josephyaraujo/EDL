@@ -18,10 +18,10 @@ public class HeapArray implements Heap{
     }
     
     private void resizeHeap() {
-        capacity *= 2
+        capacity *= 2;
             
         int newHeap[] = new int[capacity + 1];
-        for (int i = 0; i < heap.length; i++){
+        for (int i = 1; i < heap.length; i++){
             newHeap[i] = heap[i];
         }
         heap = newHeap;
